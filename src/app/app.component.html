@@ -1,0 +1,67 @@
+<h1>The Parent Component--Parent</h1>
+
+<app-header [childtitle]="ctitle"></app-header> <!--InputDecorator-->
+
+<div>{{data1}}</div>
+
+
+<!---We  can also 
+   create many instances(copies) for one child component-->
+<div>
+  <app-header [d1]="data1" [d2]="parr"></app-header>
+</div>
+
+<div>
+  <app-header [d1]="data1" [d2]="parr"></app-header>
+</div>
+
+<!--We can assign different values for the declared child typescript properties-->
+<div>
+  <app-header [d1]="data2" [d2]="parr2"></app-header>
+</div>
+
+<!---Output Decoarator-->
+<div>parent component:{{cdata}}</div>
+<app-output-decorator (custoeve)="updatecdata($event)"></app-output-decorator>
+
+<!---Template Reference Variable-->
+
+<app-template-reference-variable #child></app-template-reference-variable>
+
+<!--Accessing the Template Reference Variable Component with Template Reference Variable -->
+<div>
+  {{child.data1}}
+</div>
+
+<div>
+  {{child.demo()}}
+</div>
+
+<div>
+  Parent:{{child.data1}}
+</div>
+<hr>
+
+<!--View Child Decorator-->
+<app-view-child-decorator></app-view-child-decorator> <br>
+
+<button (click)="test()">click</button>
+
+<div>
+  Data from child:{{cdata1}}
+</div>
+<hr>
+
+<!---DOM Manipulation in the Angular -->
+<div #test1>this is div</div>
+
+<button (click)="changediv()">click</button>
+<hr>
+
+<!------------------------------View Children--------------------->
+
+<p #para>this is paragraph</p>
+
+<p #para>this is another paragraph</p>
+
+<button (click)="test()">click</button>
